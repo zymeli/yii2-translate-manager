@@ -4,7 +4,7 @@
  *
  * @since 1.2
  */
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */

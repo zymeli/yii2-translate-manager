@@ -13,6 +13,7 @@ use Yii;
 /**
  * This is the model class for table "language_translate".
  *
+ * @property int $_id
  * @property string $id
  * @property string $language
  * @property string $translation
@@ -67,6 +68,7 @@ class LanguageTranslate extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            '_id' => Yii::t('model', '_ID'),
             'id' => Yii::t('model', 'ID'),
             'language' => Yii::t('model', 'Language'),
             'translation' => Yii::t('model', 'Translation'),
@@ -74,7 +76,7 @@ class LanguageTranslate extends \yii\db\ActiveRecord
     }
 
     /**
-     * Returnes language object by id and language_id. If not found, creates a new one.
+     * Returnes LanguageTranslate object by id and language_id. If not found, creates a new one.
      *
      * @param int $id LanguageSource id
      * @param string $languageId Language language_id

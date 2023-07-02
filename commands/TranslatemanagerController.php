@@ -5,7 +5,7 @@ namespace lajax\translatemanager\commands;
 use lajax\translatemanager\services\Optimizer;
 use lajax\translatemanager\services\Scanner;
 use yii\console\Controller;
-use yii\helpers\Console;
+use yii\helpers\BaseConsole;
 
 /**
  * Command for scanning and optimizing project translations
@@ -34,11 +34,11 @@ class TranslatemanagerController extends Controller
      */
     public function actionScan()
     {
-        $this->stdout("Scanning translations...\n", Console::BOLD);
+        $this->stdout("Scanning translations...\n", BaseConsole::BOLD);
         $scanner = new Scanner();
 
         $items = $scanner->run();
-        $this->stdout("{$items} new item(s) inserted into database.\n");
+        $this->stdout("$items new item(s) inserted into database.\n");
     }
 
     /**
@@ -46,9 +46,9 @@ class TranslatemanagerController extends Controller
      */
     public function actionOptimize()
     {
-        $this->stdout("Optimizing translations...\n", Console::BOLD);
+        $this->stdout("Optimizing translations...\n", BaseConsole::BOLD);
         $optimizer = new Optimizer();
         $items = $optimizer->run();
-        $this->stdout("{$items} removed from database.\n");
+        $this->stdout("$items removed from database.\n");
     }
 }

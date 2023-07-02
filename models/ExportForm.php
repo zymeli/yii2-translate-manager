@@ -49,7 +49,7 @@ class ExportForm extends Model
     }
 
     /**
-     * @return array[] Generate a two dimensional array of the translation data for the exportLanguages:
+     * @return array[] Generate a two-dimensional array of the translation data for the exportLanguages:
      *
      * ~~~
      * [
@@ -65,12 +65,10 @@ class ExportForm extends Model
         $languageSources = LanguageSource::find()->all();
         $languageTranslations = LanguageTranslate::findAll(['language' => $this->exportLanguages]);
 
-        $data = [
+        return [
             'languages' => $languages,
             'languageSources' => $languageSources,
             'languageTranslations' => $languageTranslations,
         ];
-
-        return $data;
     }
 }

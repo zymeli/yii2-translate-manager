@@ -171,5 +171,7 @@ class TranslateBehavior extends AttributeBehavior
                 return $source;
             }
         }
+
+        return null;
     }
 }

@@ -30,7 +30,7 @@ class TranslatePluginAsset extends AssetBundle
      * @inheritdoc
      */
     public $depends = [
-        'yii\web\JqueryAsset',
-        'lajax\translatemanager\bundles\TranslationPluginAsset',
+        \yii\web\JqueryAsset::class,
+        TranslationPluginAsset::class,
     ];
 }

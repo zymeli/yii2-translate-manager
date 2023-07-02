@@ -22,6 +22,7 @@ class DialogAction extends \yii\base\Action
      */
     public function run()
     {
+        /** @var null|LanguageSource $languageSource */
         $languageSource = LanguageSource::find()->where([
             'category' => Yii::$app->request->post('category', ''),
             'MD5(message)' => Yii::$app->request->post('hash', ''),

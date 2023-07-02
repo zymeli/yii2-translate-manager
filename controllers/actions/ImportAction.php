@@ -3,6 +3,7 @@
 namespace lajax\translatemanager\controllers\actions;
 
 use lajax\translatemanager\models\Language;
+use lajax\translatemanager\Module;
 use lajax\translatemanager\services\Generator;
 use Yii;
 use yii\web\UploadedFile;
@@ -47,7 +48,9 @@ class ImportAction extends \yii\base\Action
                         ->column();
 
                     foreach ($languageIds as $languageId) {
-                        $generator = new Generator($this->controller->module, $languageId);
+                        /** @var Module $module */
+                        $module = $this->controller->module;
+                        $generator = new Generator($module, $languageId);
                         $generator->run();
                     }
 

@@ -16,10 +16,13 @@ use Yii;
  * @property string $id
  * @property string $category
  * @property string $message
- * @property string $source
- * @property string $translation
+ *
+ * @property-read string $source
+ * @property-read string $translation
+ *
  * @property LanguageTranslate $languageTranslate0
  * @property LanguageTranslate $languageTranslate
+ * @property LanguageTranslate[] $languageTranslates
  * @property Language[] $languages
  */
 class LanguageSource extends \yii\db\ActiveRecord
@@ -75,6 +78,7 @@ class LanguageSource extends \yii\db\ActiveRecord
      * @param array $languageItems
      *
      * @return int The number of new language elements.
+     * @throws \Exception
      */
     public function insertLanguageItems($languageItems)
     {
@@ -155,6 +159,7 @@ class LanguageSource extends \yii\db\ActiveRecord
 
     /**
      * @return \yii\db\ActiveQuery
+     * @throws \Exception
      */
     public function getLanguages()
     {

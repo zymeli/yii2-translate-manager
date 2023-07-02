@@ -39,15 +39,16 @@ class Generator
     /**
      * @param \lajax\translatemanager\Module $module
      * @param string $language_id Language of the file to be generated.
+     * @throws InvalidConfigException
      */
     public function __construct($module, $language_id)
     {
         $this->_languageId = $language_id;
         $this->_basePath = Yii::getAlias($module->tmpDir);
         if (!is_dir($this->_basePath)) {
-            throw new InvalidConfigException("The directory does not exist: {$this->_basePath}");
+            throw new InvalidConfigException("The directory does not exist: $this->_basePath");
         } elseif (!is_writable($this->_basePath)) {
-            throw new InvalidConfigException("The directory is not writable by the Web process: {$this->_basePath}");
+            throw new InvalidConfigException("The directory is not writable by the Web process: $this->_basePath");
         }
 
         $this->_basePath = $module->getLanguageItemsDirPath();
@@ -56,7 +57,7 @@ class Generator
         }
 
         if (!is_writable($this->_basePath)) {
-            throw new InvalidConfigException("The directory is not writable by the Web process: {$this->_basePath}");
+            throw new InvalidConfigException("The directory is not writable by the Web process: $this->_basePath");
         }
     }
 

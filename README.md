@@ -35,7 +35,7 @@ composer require lajax/yii2-translate-manager
 Run the following command in Terminal for database migration:
 
 ```
-yii migrate/up --migrationPath=@vendor/lajax/yii2-translate-manager/migrations
+yii migrate/up --migrationPath=@vendor/zymeli/yii2-translate-manager/migrations
 ```
 
 Or use the [namespaced migration](http://www.yiiframework.com/doc-2.0/guide-db-migrations.html#namespaced-migrations) (requires at least Yii 2.0.10):

@@ -27,7 +27,7 @@ trait SearchTrait
         /* @var $db \yii\db\Connection */
         $db = static::getDb();
 
-        // In PGSQL we use case insensitive matching also.
+        // In PGSQL we use case-insensitive matching also.
         $like_function = $db->getDriverName() == 'pgsql' ? 'ILIKE' : 'LIKE';
 
         return [$like_function, $operand1, $operand2];

@@ -13,12 +13,14 @@ use Yii;
 /**
  * This is the model class for table "language".
  *
+ * @property int $_id
  * @property string $language_id
  * @property string $language
  * @property string $country
  * @property string $name
  * @property string $name_ascii
  * @property int $status
+ *
  * @property LanguageTranslate $languageTranslate
  * @property LanguageSource[] $languageSources
  */
@@ -92,6 +94,7 @@ class Language extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            '_id' => Yii::t('model', '_ID'),
             'language_id' => Yii::t('model', 'Language ID'),
             'language' => Yii::t('model', 'Language'),
             'country' => Yii::t('model', 'Country'),
@@ -126,7 +129,7 @@ class Language extends \yii\db\ActiveRecord
      * @param bool $active True/False according to the status of the language.
      * @param bool $asArray Return the languages as language object or as 'flat' array
      *
-     * @return Language|array
+     * @return array
      *
      * @deprecated since version 1.5.2
      */
@@ -197,6 +200,7 @@ class Language extends \yii\db\ActiveRecord
 
     /**
      * @return \yii\db\ActiveQuery
+     * @throws \Exception
      *
      * @deprecated since version 1.4.5
      */
@@ -208,6 +212,7 @@ class Language extends \yii\db\ActiveRecord
 
     /**
      * @return \yii\db\ActiveQuery
+     * @throws \Exception
      */
     public function getLanguageSources()
     {

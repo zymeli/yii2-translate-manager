@@ -3,6 +3,7 @@
 namespace lajax\translatemanager\services;
 
 use yii\helpers\Console;
+use yii\helpers\BaseConsole;
 use lajax\translatemanager\models\LanguageSource;
 
 /**
@@ -45,7 +46,7 @@ class Optimizer
     {
         $this->_scanner = new Scanner();
         $this->_scanner->run();
-        $this->_scanner->stdout('Deleted language elements - BEGIN', Console::FG_RED);
+        $this->_scanner->stdout('Deleted language elements - BEGIN', BaseConsole::FG_RED);
 
         $languageSourceIds = $this->_scanner->getRemovableLanguageSourceIds();
 
@@ -53,7 +54,7 @@ class Optimizer
 
         LanguageSource::deleteAll(['id' => $languageSourceIds]);
 
-        $this->_scanner->stdout('Deleted language elements - END', Console::FG_RED);
+        $this->_scanner->stdout('Deleted language elements - END', BaseConsole::FG_RED);
 
         return count($languageSourceIds);
     }
@@ -79,8 +80,8 @@ class Optimizer
         foreach ($languageSources as $languageSource) {
             $this->_languageElements[$languageSource->category][$languageSource->message] = $languageSource->id;
 
-            $category = Console::ansiFormat($languageSource->category, [Console::FG_RED]);
-            $message = Console::ansiFormat($languageSource->message, [Console::FG_RED]);
+            $category = Console::ansiFormat($languageSource->category, [BaseConsole::FG_RED]);
+            $message = Console::ansiFormat($languageSource->message, [BaseConsole::FG_RED]);
 
             $this->_scanner->stdout('category: ' . $category . ', message: ' . $message);
         }

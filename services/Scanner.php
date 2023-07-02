@@ -4,6 +4,7 @@ namespace lajax\translatemanager\services;
 
 use Yii;
 use yii\helpers\Console;
+use yii\helpers\BaseConsole;
 use lajax\translatemanager\models\LanguageSource;
 
 /**
@@ -55,6 +56,7 @@ class Scanner
      *
      * @return int The number of new language elements.
      *
+     * @throws \Exception
      * @deprecated since version 1.4
      */
     public function scanning()
@@ -66,6 +68,7 @@ class Scanner
      * Scanning project for text not stored in database.
      *
      * @return int The number of new language elements.
+     * @throws \Exception
      */
     public function run()
     {
@@ -160,8 +163,8 @@ class Scanner
     {
         $this->_languageElements[$category][$message] = true;
 
-        $coloredCategory = Console::ansiFormat($category, [Console::FG_YELLOW]);
-        $coloredMessage = Console::ansiFormat($message, [Console::FG_YELLOW]);
+        $coloredCategory = Console::ansiFormat($category, [BaseConsole::FG_YELLOW]);
+        $coloredMessage = Console::ansiFormat($message, [BaseConsole::FG_YELLOW]);
 
         $this->stdout('Detected language element: [ ' . $coloredCategory . ' ] ' . $coloredMessage);
     }

@@ -17,7 +17,7 @@ class ExportAction extends \yii\base\Action
     /**
      * Show export form or generate export file on post
      *
-     * @return string
+     * @return mixed
      */
     public function run()
     {

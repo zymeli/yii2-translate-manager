@@ -5,15 +5,16 @@
  * @since 1.0
  */
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
+use yii\bootstrap5\Nav;
+use yii\bootstrap5\NavBar;
+use yii\bootstrap5\Breadcrumbs;
 use lajax\translatemanager\bundles\TranslateManagerAsset;
 
-/*
+/**
  * @var \yii\web\View $this
  * @var string $content
  */
+
 TranslateManagerAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -34,7 +35,7 @@ TranslateManagerAsset::register($this);
                 'brandLabel' => 'Lajax TranslateManager',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
+                    'class' => 'navbar-inverse navbar-expand-lg navbar-dark bg-dark',
                 ],
             ]);
             $menuItems = [

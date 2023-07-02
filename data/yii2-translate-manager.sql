@@ -13,6 +13,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `lajax`
 --
+SET NAMES utf8;
+SET FOREIGN_KEY_CHECKS = 0;
 
 -- --------------------------------------------------------
 
@@ -21,13 +23,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `language` (
+  `_id` int NOT NULL AUTO_INCREMENT,
   `language_id` varchar(5) NOT NULL,
   `language` varchar(3) NOT NULL,
   `country` varchar(3) NOT NULL,
-  `name` varchar(32) NOT NULL,
-  `name_ascii` varchar(32) NOT NULL,
-  `status` tinyint(3) unsigned NOT NULL,
-  PRIMARY KEY (`language_id`)
+  `name` varchar(200) NOT NULL,
+  `name_ascii` varchar(200) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`_id`),
+  UNIQUE INDEX `language_id` (`language_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -36,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `language` (
 
 INSERT INTO `language` (`language_id`, `language`, `country`, `name`, `name_ascii`, `status`) VALUES
 ('af-ZA', 'af', 'za', 'Afrikaans', 'Afrikaans', 0),
-('ar-AR', 'ar', 'ar', '‏العربية‏', 'Arabic', 1),
+('ar-AR', 'ar', 'ar', '‏العربية‏', 'Arabic', 0),
 ('az-AZ', 'az', 'az', 'Azərbaycan dili', 'Azerbaijani', 0),
 ('be-BY', 'be', 'by', 'Беларуская', 'Belarusian', 0),
 ('bg-BG', 'bg', 'bg', 'Български', 'Bulgarian', 0),
@@ -69,7 +73,7 @@ INSERT INTO `language` (`language_id`, `language`, `country`, `name`, `name_asci
 ('he-IL', 'he', 'il', '‏עברית‏', 'Hebrew', 0),
 ('hi-IN', 'hi', 'in', 'हिन्दी', 'Hindi', 0),
 ('hr-HR', 'hr', 'hr', 'Hrvatski', 'Croatian', 0),
-('hu-HU', 'hu', 'hu', 'Magyar', 'Hungarian', 1),
+('hu-HU', 'hu', 'hu', 'Magyar', 'Hungarian', 0),
 ('hy-AM', 'hy', 'am', 'Հայերեն', 'Armenian', 0),
 ('id-ID', 'id', 'id', 'Bahasa Indonesia', 'Indonesian', 0),
 ('is-IS', 'is', 'is', 'Íslenska', 'Icelandic', 0),
@@ -110,9 +114,9 @@ INSERT INTO `language` (`language_id`, `language`, `country`, `name`, `name_asci
 ('uk-UA', 'uk', 'ua', 'Українська', 'Ukrainian', 0),
 ('vi-VN', 'vi', 'vn', 'Tiếng Việt', 'Vietnamese', 0),
 ('xx-XX', 'xx', 'xx', 'Fejlesztő', 'Developer', 0),
-('zh-CN', 'zh', 'cn', '中文(简体)', 'Simplified Chinese (China)', 0),
-('zh-HK', 'zh', 'hk', '中文(香港)', 'Traditional Chinese (Hong Kong)', 0),
-('zh-TW', 'zh', 'tw', '中文(台灣)', 'Traditional Chinese (Taiwan)', 0);
+('zh-CN', 'zh', 'cn', '中文简体', 'Simplified Chinese (China)', 1),
+('zh-HK', 'zh', 'hk', '中文繁體(香港)', 'Traditional Chinese (Hong Kong of China)', 0),
+('zh-TW', 'zh', 'tw', '中文繁體(臺灣)', 'Traditional Chinese (Taiwan of China)', 0);
 
 -- --------------------------------------------------------
 
@@ -121,8 +125,8 @@ INSERT INTO `language` (`language_id`, `language`, `country`, `name`, `name_asci
 --
 
 CREATE TABLE IF NOT EXISTS `language_source` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `category` varchar(32) DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `category` varchar(200) DEFAULT NULL,
   `message` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -134,11 +138,13 @@ CREATE TABLE IF NOT EXISTS `language_source` (
 --
 
 CREATE TABLE IF NOT EXISTS `language_translate` (
-  `id` int(10) unsigned NOT NULL,
-  `language` char(5) NOT NULL DEFAULT '',
+  `_id` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL,
+  `language` varchar(5) NOT NULL,
   `translation` text,
-  PRIMARY KEY (`id`,`language`),
-  KEY `language` (`language`)
+  PRIMARY KEY (`_id`),
+  UNIQUE INDEX `language_source_id_and_code` (`id`,`language`),
+  INDEX `language_translate_idx_language`(`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -151,3 +157,6 @@ CREATE TABLE IF NOT EXISTS `language_translate` (
 ALTER TABLE `language_translate`
   ADD CONSTRAINT `language_translate_ibfk_1` FOREIGN KEY (`id`) REFERENCES `language_source` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `language_translate_ibfk_2` FOREIGN KEY (`language`) REFERENCES `language` (`language_id`) ON DELETE CASCADE;
+
+
+SET FOREIGN_KEY_CHECKS = 1;

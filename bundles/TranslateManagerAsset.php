@@ -29,7 +29,7 @@ class TranslateManagerAsset extends AssetBundle
      * @inheritdoc
      */
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        \yii\web\YiiAsset::class,
+        \yii\bootstrap5\BootstrapAsset::class,
     ];
 }

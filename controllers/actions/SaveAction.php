@@ -6,6 +6,7 @@ use Yii;
 use yii\web\Response;
 use lajax\translatemanager\services\Generator;
 use lajax\translatemanager\models\LanguageTranslate;
+use lajax\translatemanager\Module;
 
 /**
  * Class for saving translations.
@@ -20,6 +21,7 @@ class SaveAction extends \yii\base\Action
      * Saving translated language elements.
      *
      * @return array
+     * @throws \yii\base\InvalidConfigException
      */
     public function run()
     {
@@ -33,7 +35,9 @@ class SaveAction extends \yii\base\Action
 
         $languageTranslate->translation = Yii::$app->request->post('translation', '');
         if ($languageTranslate->validate() && $languageTranslate->save()) {
-            $generator = new Generator($this->controller->module, $languageId);
+            /** @var Module $module */
+            $module = $this->controller->module;
+            $generator = new Generator($module, $languageId);
 
             $generator->run();
         }

@@ -27,7 +27,7 @@ class m141002_030233_translate_manager extends Migration
         ['da-DK', 'da', 'dk', 'Dansk', 'Danish', 0],
         ['de-DE', 'de', 'de', 'Deutsch', 'German', 0],
         ['el-GR', 'el', 'gr', 'Ελληνικά', 'Greek', 0],
-        ['en-GB', 'en', 'gb', 'English (UK)', 'English (UK)', 1],
+        ['en-GB', 'en', 'gb', 'English (UK)', 'English (UK)', 0],
         ['en-PI', 'en', 'pi', 'English (Pirate)', 'English (Pirate)', 0],
         ['en-UD', 'en', 'ud', 'English (Upside Down)', 'English (Upside Down)', 0],
         ['en-US', 'en', 'us', 'English (US)', 'English (US)', 1],
@@ -89,9 +89,9 @@ class m141002_030233_translate_manager extends Migration
         ['uk-UA', 'uk', 'ua', 'Українська', 'Ukrainian', 0],
         ['vi-VN', 'vi', 'vn', 'Tiếng Việt', 'Vietnamese', 0],
         ['xx-XX', 'xx', 'xx', 'Fejlesztő', 'Developer', 0],
-        ['zh-CN', 'zh', 'cn', '中文(简体)', 'Simplified Chinese (China)', 0],
-        ['zh-HK', 'zh', 'hk', '中文(香港)', 'Traditional Chinese (Hong Kong)', 0],
-        ['zh-TW', 'zh', 'tw', '中文(台灣)', 'Traditional Chinese (Taiwan)', 0],
+        ['zh-CN', 'zh', 'cn', '中文简体', 'Simplified Chinese (China)', 1],
+        ['zh-HK', 'zh', 'hk', '中文繁體(香港)', 'Traditional Chinese (Hong Kong of China)', 0],
+        ['zh-TW', 'zh', 'tw', '中文繁體(臺灣)', 'Traditional Chinese (Taiwan of China)', 0],
     ];
 
     public function up()
@@ -103,13 +103,14 @@ class m141002_030233_translate_manager extends Migration
         }
 
         $this->createTable('{{%language}}', [
+            '_id' => Schema::TYPE_PK,
             'language_id' => Schema::TYPE_STRING . '(5) NOT NULL',
             'language' => Schema::TYPE_STRING . '(3) NOT NULL',
             'country' => Schema::TYPE_STRING . '(3) NOT NULL',
-            'name' => Schema::TYPE_STRING . '(32) NOT NULL',
-            'name_ascii' => Schema::TYPE_STRING . '(32) NOT NULL',
+            'name' => Schema::TYPE_STRING . '(200) NOT NULL',
+            'name_ascii' => Schema::TYPE_STRING . '(200) NOT NULL',
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL',
-            'PRIMARY KEY (language_id)',
+            'UNIQUE KEY `language_id` (language_id)',
         ], $tableOptions);
 
         $this->batchInsert('{{%language}}', [
@@ -123,21 +124,22 @@ class m141002_030233_translate_manager extends Migration
 
         $this->createTable('{{%language_source}}', [
             'id' => Schema::TYPE_PK,
-            'category' => Schema::TYPE_STRING . '(32) DEFAULT NULL',
+            'category' => Schema::TYPE_STRING . '(200) DEFAULT NULL',
             'message' => Schema::TYPE_TEXT,
         ], $tableOptions);
 
         $this->createTable('{{%language_translate}}', [
+            '_id' => Schema::TYPE_PK,
             'id' => Schema::TYPE_INTEGER . ' NOT NULL',
             'language' => Schema::TYPE_STRING . '(5) NOT NULL',
             'translation' => Schema::TYPE_TEXT,
-            'PRIMARY KEY (id, language)',
+            'UNIQUE KEY `language_source_id_and_code` (id, language)',
         ], $tableOptions);
 
         $this->createIndex('language_translate_idx_language', '{{%language_translate}}', 'language');
 
-        $this->addForeignKey('language_translate_ibfk_1', '{{%language_translate}}', ['language'], '{{%language}}', ['language_id'], 'CASCADE', 'CASCADE');
-        $this->addForeignKey('language_translate_ibfk_2', '{{%language_translate}}', ['id'], '{{%language_source}}', ['id'], 'CASCADE', 'CASCADE');
+        $this->addForeignKey('language_translate_ibfk_1', '{{%language_translate}}', ['id'], '{{%language_source}}', ['id'], 'CASCADE', 'CASCADE');
+        $this->addForeignKey('language_translate_ibfk_2', '{{%language_translate}}', ['language'], '{{%language}}', ['language_id'], 'CASCADE', 'CASCADE');
     }
 
     public function down()

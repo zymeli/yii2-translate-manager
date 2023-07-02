@@ -30,6 +30,6 @@ class LanguagePluginAsset extends AssetBundle
      * @inheritdoc
      */
     public $depends = [
-        'yii\web\JqueryAsset',
+        \yii\web\JqueryAsset::class,
     ];
 }

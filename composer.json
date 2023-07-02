@@ -1,26 +1,34 @@
 {
-    "name": "lajax/yii2-translate-manager",
+    "name": "zymeli/yii2-translate-manager",
     "description": "Translation management extension for Yii 2",
     "type": "yii2-extension",
     "keywords": ["yii2", "extension", "translate", "language", "module"],
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/lajax/yii2-translate-manager/issues?state=open",
-		"source": "https://github.com/lajax/yii2-translate-manager"
-	},
+        "issues": "https://github.com/zymeli/yii2-translate-manager/issues?state=open",
+        "source": "https://github.com/zymeli/yii2-translate-manager"
+    },
     "authors": [
         {
             "name": "Lajos Molnar",
             "email": "lajax.m@gmail.com"
+        },
+        {
+            "name": "zymeli",
+            "email": "710055@qq.com"
         }
     ],
     "require": {
-        "yiisoft/yii2": "~2.0.0",
-        "yiisoft/yii2-jui": "~2.0.0",
-        "yiisoft/yii2-bootstrap": "~2.0.0"
+        "php": ">=8.0",
+        "ext-simplexml": "*",
+        "yiisoft/yii2": "~2.0.38",
+        "yiisoft/yii2-bootstrap5": "~2.0.2",
+        "kartik-v/yii2-widgets": "^3.4",
+        "kartik-v/yii2-helpers": "^1.3",
+        "yiisoft/yii2-jui": "~2.0.7"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.1"
+        "friendsofphp/php-cs-fixer": "^2.1 | ^3.0"
     },
     "autoload": {
         "psr-4": {
