@@ -1,10 +1,10 @@
 <?php
 
-namespace lajax\translatemanager\controllers\actions;
+namespace zymeli\TranslateManager\controllers\actions;
 
 use Yii;
 use yii\widgets\ActiveForm;
-use lajax\translatemanager\models\Language;
+use zymeli\TranslateManager\models\Language;
 
 /**
  * Creates a new Language model.

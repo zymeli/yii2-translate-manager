@@ -1,6 +1,6 @@
 <?php
 
-namespace lajax\translatemanager;
+namespace zymeli\TranslateManager;
 
 use Yii;
 
@@ -14,7 +14,7 @@ use Yii;
  * 'bootstrap' => ['translatemanager'],
  * 'component' => [
  *      'translatemanager' => [
- *          'class' => 'lajax\translatemanager\Component'
+ *          'class' => 'zymeli\TranslateManager\Component'
  *      ]
  * ]
  * ~~~

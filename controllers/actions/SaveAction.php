@@ -1,12 +1,12 @@
 <?php
 
-namespace lajax\translatemanager\controllers\actions;
+namespace zymeli\TranslateManager\controllers\actions;
 
 use Yii;
 use yii\web\Response;
-use lajax\translatemanager\services\Generator;
-use lajax\translatemanager\models\LanguageTranslate;
-use lajax\translatemanager\Module;
+use zymeli\TranslateManager\services\Generator;
+use zymeli\TranslateManager\models\LanguageTranslate;
+use zymeli\TranslateManager\Module;
 
 /**
  * Class for saving translations.

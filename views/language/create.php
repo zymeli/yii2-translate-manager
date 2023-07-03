@@ -6,7 +6,7 @@
  */
 
 /* @var $this yii\web\View */
-/* @var $model lajax\translatemanager\models\Language */
+/* @var $model zymeli\TranslateManager\models\Language */
 
 $this->title = Yii::t('language', 'Create {modelClass}', [
     'modelClass' => 'Language',

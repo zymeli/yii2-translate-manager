@@ -1,6 +1,6 @@
 <?php
 
-namespace lajax\translatemanager\controllers\actions;
+namespace zymeli\TranslateManager\controllers\actions;
 
 use Yii;
 use yii\widgets\ActiveForm;

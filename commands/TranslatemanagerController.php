@@ -1,9 +1,9 @@
 <?php
 
-namespace lajax\translatemanager\commands;
+namespace zymeli\TranslateManager\commands;
 
-use lajax\translatemanager\services\Optimizer;
-use lajax\translatemanager\services\Scanner;
+use zymeli\TranslateManager\services\Optimizer;
+use zymeli\TranslateManager\services\Scanner;
 use yii\console\Controller;
 use yii\helpers\BaseConsole;
 

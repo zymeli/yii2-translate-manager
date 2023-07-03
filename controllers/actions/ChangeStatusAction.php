@@ -1,10 +1,10 @@
 <?php
 
-namespace lajax\translatemanager\controllers\actions;
+namespace zymeli\TranslateManager\controllers\actions;
 
 use Yii;
 use yii\web\Response;
-use lajax\translatemanager\models\Language;
+use zymeli\TranslateManager\models\Language;
 
 /**
  * Class that modifies the state of a language.

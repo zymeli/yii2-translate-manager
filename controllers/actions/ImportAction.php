@@ -1,13 +1,13 @@
 <?php
 
-namespace lajax\translatemanager\controllers\actions;
+namespace zymeli\TranslateManager\controllers\actions;
 
-use lajax\translatemanager\models\Language;
-use lajax\translatemanager\Module;
-use lajax\translatemanager\services\Generator;
+use zymeli\TranslateManager\models\Language;
+use zymeli\TranslateManager\Module;
+use zymeli\TranslateManager\services\Generator;
 use Yii;
 use yii\web\UploadedFile;
-use lajax\translatemanager\models\ImportForm;
+use zymeli\TranslateManager\models\ImportForm;
 
 /**
  * Class for exporting translations.

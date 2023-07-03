@@ -1,6 +1,6 @@
 <?php
 
-namespace lajax\translatemanager;
+namespace zymeli\TranslateManager;
 
 use Yii;
 use yii\base\InvalidConfigException;
@@ -17,7 +17,7 @@ use yii\web\Response;
  * ~~~
  * 'modules' => [
  *     'translatemanager' => [
- *         'class' => 'lajax\translatemanager\Module',
+ *         'class' => 'zymeli\TranslateManager\Module',
  *     ],
  * ],
  * ~~~
@@ -27,7 +27,7 @@ use yii\web\Response;
  * ~~~
  * 'modules' => [
  *     'translatemanager' => [
- *         'class' => 'lajax\translatemanager\Module',
+ *         'class' => 'zymeli\TranslateManager\Module',
  *         'root' => '@app',               // The root directory of the project scan.
  *         'layout' => 'language',         // Name of the used layout. If using own layout use 'null'.
  *         'allowedIPs' => ['127.0.0.1'],  // IP addresses from which the translation interface is accessible.
@@ -97,7 +97,7 @@ class Module extends \yii\base\Module
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'lajax\translatemanager\controllers';
+    public $controllerNamespace = 'zymeli\TranslateManager\controllers';
 
     /**
      * @inheritdoc

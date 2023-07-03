@@ -1,8 +1,8 @@
 <?php
 
-namespace lajax\translatemanager\controllers\actions;
+namespace zymeli\TranslateManager\controllers\actions;
 
-use lajax\translatemanager\services\Optimizer;
+use zymeli\TranslateManager\services\Optimizer;
 
 /**
  * Class for optimizing language database.

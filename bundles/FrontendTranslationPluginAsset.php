@@ -1,6 +1,6 @@
 <?php
 
-namespace lajax\translatemanager\bundles;
+namespace zymeli\TranslateManager\bundles;
 
 use yii\web\AssetBundle;
 
@@ -16,7 +16,7 @@ class FrontendTranslationPluginAsset extends AssetBundle
     /**
      * @inheritdoc
      */
-    public $sourcePath = '@lajax/translatemanager/assets';
+    public $sourcePath = '@zymeli/TranslateManager/assets';
 
     /**
      * @inheritdoc

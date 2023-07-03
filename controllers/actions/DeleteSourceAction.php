@@ -1,10 +1,10 @@
 <?php
 
-namespace lajax\translatemanager\controllers\actions;
+namespace zymeli\TranslateManager\controllers\actions;
 
 use Yii;
 use yii\web\Response;
-use lajax\translatemanager\models\LanguageSource;
+use zymeli\TranslateManager\models\LanguageSource;
 
 /**
  * Deletes an existing LanguageSource model.

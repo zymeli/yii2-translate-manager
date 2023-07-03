@@ -1,10 +1,10 @@
 <?php
 
-namespace lajax\translatemanager\helpers;
+namespace zymeli\TranslateManager\helpers;
 
 use Yii;
-use lajax\translatemanager\services\Scanner;
-use lajax\translatemanager\bundles\TranslationPluginAsset;
+use zymeli\TranslateManager\services\Scanner;
+use zymeli\TranslateManager\bundles\TranslationPluginAsset;
 
 /**
  * Language helper.
@@ -76,7 +76,7 @@ class Language
      *          'name' => 'Jenny',
      *      ],
      * ];
-     * $result = \lajax\translatemanager\helpers\Language::a($array, $params);
+     * $result = \zymeli\TranslateManager\helpers\Language::a($array, $params);
      * ~~~
      *
      * The result:
@@ -121,7 +121,7 @@ class Language
      *          ]
      *      ]
      * ];
-     * $result = \lajax\translatemanager\helpers\Language::a($array, $params);
+     * $result = \zymeli\TranslateManager\helpers\Language::a($array, $params);
      * ~~~
      *
      * The result:
@@ -168,7 +168,7 @@ class Language
      * ~~~
      * 'modules' => [
      *      'translatemanager' => [
-     *          'class' => 'lajax\translatemanager\Module',
+     *          'class' => 'zymeli\TranslateManager\Module',
      *          'tables' => [
      *              [
      *                  'connection' => 'db',
@@ -204,7 +204,7 @@ class Language
      */
     public static function isEnabledTranslate()
     {
-        return Yii::$app->session->has(\lajax\translatemanager\Module::SESSION_KEY_ENABLE_TRANSLATE);
+        return Yii::$app->session->has(\zymeli\TranslateManager\Module::SESSION_KEY_ENABLE_TRANSLATE);
     }
 
     /**
@@ -215,7 +215,7 @@ class Language
      */
     public static function saveMessage($message, $category = 'database')
     {
-        $languageSources = \lajax\translatemanager\models\LanguageSource::find()->where(['category' => $category])->all();
+        $languageSources = \zymeli\TranslateManager\models\LanguageSource::find()->where(['category' => $category])->all();
 
         $messages = [];
         foreach ($languageSources as $languageSource) {
@@ -223,7 +223,7 @@ class Language
         }
 
         if (empty($messages[$message])) {
-            $languageSource = new \lajax\translatemanager\models\LanguageSource();
+            $languageSource = new \zymeli\TranslateManager\models\LanguageSource();
             $languageSource->category = $category;
             $languageSource->message = $message;
             $languageSource->save();
@@ -237,7 +237,7 @@ class Language
      */
     public static function getCategories()
     {
-        $languageSources = \lajax\translatemanager\models\LanguageSource::find()->select('category')->distinct()->all();
+        $languageSources = \zymeli\TranslateManager\models\LanguageSource::find()->select('category')->distinct()->all();
 
         $categories = [];
         foreach ($languageSources as $languageSource) {

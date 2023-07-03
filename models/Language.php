@@ -6,7 +6,7 @@
  * @since 1.0
  */
 
-namespace lajax\translatemanager\models;
+namespace zymeli\TranslateManager\models;
 
 use Yii;
 
@@ -159,7 +159,7 @@ class Language extends \yii\db\ActiveRecord
      */
     public static function getStatusNames()
     {
-        return \lajax\translatemanager\helpers\Language::a(self::$_CONDITIONS);
+        return \zymeli\TranslateManager\helpers\Language::a(self::$_CONDITIONS);
     }
 
     /**

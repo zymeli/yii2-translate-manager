@@ -1,10 +1,10 @@
 <?php
 
-namespace lajax\translatemanager\controllers\actions;
+namespace zymeli\TranslateManager\controllers\actions;
 
 use Yii;
-use lajax\translatemanager\models\LanguageSource;
-use lajax\translatemanager\models\LanguageTranslate;
+use zymeli\TranslateManager\models\LanguageSource;
+use zymeli\TranslateManager\models\LanguageTranslate;
 
 /**
  * Class for returning messages in the given language

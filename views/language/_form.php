@@ -6,10 +6,10 @@
  */
 use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
-use lajax\translatemanager\models\Language;
+use zymeli\TranslateManager\models\Language;
 
 /* @var $this yii\web\View */
-/* @var $model lajax\translatemanager\models\Language */
+/* @var $model zymeli\TranslateManager\models\Language */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

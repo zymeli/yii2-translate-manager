@@ -1,7 +1,7 @@
 <?php
 
-use lajax\translatemanager\models\ExportForm;
-use lajax\translatemanager\models\Language;
+use zymeli\TranslateManager\models\ExportForm;
+use zymeli\TranslateManager\models\Language;
 use yii\bootstrap5\ActiveForm;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;

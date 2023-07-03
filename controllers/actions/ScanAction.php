@@ -1,11 +1,11 @@
 <?php
 
-namespace lajax\translatemanager\controllers\actions;
+namespace zymeli\TranslateManager\controllers\actions;
 
 use yii\data\ArrayDataProvider;
-use lajax\translatemanager\services\Scanner;
-use lajax\translatemanager\models\LanguageSource;
-use lajax\translatemanager\bundles\ScanPluginAsset;
+use zymeli\TranslateManager\services\Scanner;
+use zymeli\TranslateManager\models\LanguageSource;
+use zymeli\TranslateManager\bundles\ScanPluginAsset;
 
 /**
  * Class for detecting language elements.

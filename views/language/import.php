@@ -1,6 +1,6 @@
 <?php
 
-use lajax\translatemanager\models\ImportForm;
+use zymeli\TranslateManager\models\ImportForm;
 use yii\bootstrap5\ActiveForm;
 use yii\helpers\Html;
 

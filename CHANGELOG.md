@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ## [Unreleased]
 
+## [1.8.1.1] - 2023-07-02
+### Changed
+ - fixed composer, use bootstrap5, use `zymeli` namespace
+
 ## [1.8.1] - 2020-07-04
 ### Fixed
  - Fix `onlyCategories` option not applied correctly #135 (bjornhij)

@@ -1,10 +1,10 @@
 <?php
 
-namespace lajax\translatemanager\services;
+namespace zymeli\TranslateManager\services;
 
 use yii\helpers\Console;
 use yii\helpers\BaseConsole;
-use lajax\translatemanager\models\LanguageSource;
+use zymeli\TranslateManager\models\LanguageSource;
 
 /**
  * Optimizer class for optimizing database tables

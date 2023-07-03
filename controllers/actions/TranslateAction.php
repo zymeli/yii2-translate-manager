@@ -1,11 +1,11 @@
 <?php
 
-namespace lajax\translatemanager\controllers\actions;
+namespace zymeli\TranslateManager\controllers\actions;
 
 use Yii;
-use lajax\translatemanager\bundles\TranslateAsset;
-use lajax\translatemanager\bundles\TranslatePluginAsset;
-use lajax\translatemanager\models\searches\LanguageSourceSearch;
+use zymeli\TranslateManager\bundles\TranslateAsset;
+use zymeli\TranslateManager\bundles\TranslatePluginAsset;
+use zymeli\TranslateManager\models\searches\LanguageSourceSearch;
 
 /**
  * This class facilitates the listing of language elements to be translated.

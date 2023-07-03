@@ -1,13 +1,13 @@
 <?php
 
-namespace lajax\translatemanager\controllers\actions;
+namespace zymeli\TranslateManager\controllers\actions;
 
 use Yii;
 use yii\web\JsonResponseFormatter;
 use yii\web\Response;
 use yii\web\XmlResponseFormatter;
-use lajax\translatemanager\Module;
-use lajax\translatemanager\models\ExportForm;
+use zymeli\TranslateManager\Module;
+use zymeli\TranslateManager\models\ExportForm;
 
 /**
  * Class for exporting translations.

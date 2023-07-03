@@ -1,13 +1,13 @@
 <?php
 
-namespace lajax\translatemanager\behaviors;
+namespace zymeli\TranslateManager\behaviors;
 
 use Yii;
 use yii\db\BaseActiveRecord;
 use yii\behaviors\AttributeBehavior;
-use lajax\translatemanager\helpers\Language;
-use lajax\translatemanager\models\LanguageSource;
-use lajax\translatemanager\models\LanguageTranslate;
+use zymeli\TranslateManager\helpers\Language;
+use zymeli\TranslateManager\models\LanguageSource;
+use zymeli\TranslateManager\models\LanguageTranslate;
 
 /**
  * Behavior that translates the model attributes, and saves the changes into database.
@@ -28,7 +28,7 @@ use lajax\translatemanager\models\LanguageTranslate;
  *
  * ~~~
  * [
- *      'class' => lajax\translatemanager\behaviors\TranslateBehavior::className(),
+ *      'class' => zymeli\TranslateManager\behaviors\TranslateBehavior::className(),
  *      'translateAttributes' => ['names of multilingual fields'],
  * ],
  * ~~~
@@ -37,7 +37,7 @@ use lajax\translatemanager\models\LanguageTranslate;
  *
  * ~~~
  * [
- *      'class' => lajax\translatemanager\behaviors\TranslateBehavior::className(),
+ *      'class' => zymeli\TranslateManager\behaviors\TranslateBehavior::className(),
  *      'translateAttributes' => ['names of multilingual fields'],
  *      'category' => static::tableName(),
  * ],

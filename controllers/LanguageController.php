@@ -1,12 +1,12 @@
 <?php
 
-namespace lajax\translatemanager\controllers;
+namespace zymeli\TranslateManager\controllers;
 
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\data\ArrayDataProvider;
 use yii\filters\AccessControl;
-use lajax\translatemanager\models\Language;
+use zymeli\TranslateManager\models\Language;
 
 /**
  * Controller for managing multilinguality.
@@ -18,7 +18,7 @@ use lajax\translatemanager\models\Language;
 class LanguageController extends Controller
 {
     /**
-     * @var \lajax\translatemanager\Module TranslateManager module
+     * @var \zymeli\TranslateManager\Module TranslateManager module
      */
     public $module;
 
@@ -57,49 +57,49 @@ class LanguageController extends Controller
                 'class' => 'yii\web\ErrorAction',
             ],
             'list' => [
-                'class' => 'lajax\translatemanager\controllers\actions\ListAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\ListAction',
             ],
             'change-status' => [
-                'class' => 'lajax\translatemanager\controllers\actions\ChangeStatusAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\ChangeStatusAction',
             ],
             'optimizer' => [
-                'class' => 'lajax\translatemanager\controllers\actions\OptimizerAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\OptimizerAction',
             ],
             'scan' => [
-                'class' => 'lajax\translatemanager\controllers\actions\ScanAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\ScanAction',
             ],
             'translate' => [
-                'class' => 'lajax\translatemanager\controllers\actions\TranslateAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\TranslateAction',
             ],
             'save' => [
-                'class' => 'lajax\translatemanager\controllers\actions\SaveAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\SaveAction',
             ],
             'dialog' => [
-                'class' => 'lajax\translatemanager\controllers\actions\DialogAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\DialogAction',
             ],
             'message' => [
-                'class' => 'lajax\translatemanager\controllers\actions\MessageAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\MessageAction',
             ],
             'view' => [
-                'class' => 'lajax\translatemanager\controllers\actions\ViewAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\ViewAction',
             ],
             'create' => [
-                'class' => 'lajax\translatemanager\controllers\actions\CreateAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\CreateAction',
             ],
             'update' => [
-                'class' => 'lajax\translatemanager\controllers\actions\UpdateAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\UpdateAction',
             ],
             'delete' => [
-                'class' => 'lajax\translatemanager\controllers\actions\DeleteAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\DeleteAction',
             ],
             'delete-source' => [
-                'class' => 'lajax\translatemanager\controllers\actions\DeleteSourceAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\DeleteSourceAction',
             ],
             'import' => [
-                'class' => 'lajax\translatemanager\controllers\actions\ImportAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\ImportAction',
             ],
             'export' => [
-                'class' => 'lajax\translatemanager\controllers\actions\ExportAction',
+                'class' => 'zymeli\TranslateManager\controllers\actions\ExportAction',
             ],
         ];
     }
