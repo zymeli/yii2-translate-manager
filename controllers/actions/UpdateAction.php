@@ -18,12 +18,14 @@ class UpdateAction extends \yii\base\Action
      * Updates an existing Language model.
      * If update is successful, the browser will be redirected to the 'view' page.
      *
-     * @param string $id
+     * @param int|string $_id
+     * @param int|string $id
      *
      * @return mixed
      */
-    public function run($id)
+    public function run($_id = null, $id = null)
     {
+        $id = ($id ?: $_id);
         $model = $this->controller->findModel($id);
 
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
@@ -31,7 +33,7 @@ class UpdateAction extends \yii\base\Action
 
             return ActiveForm::validate($model);
         } elseif ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->controller->redirect(['view', 'id' => $model->language_id]);
+            return $this->controller->redirect(['view', 'id' => $model->primaryKey]);
         } else {
             return $this->controller->render('update', [
                 'model' => $model,

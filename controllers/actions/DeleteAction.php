@@ -15,12 +15,14 @@ class DeleteAction extends \yii\base\Action
      * Deletes an existing Language model.
      * If deletion is successful, the browser will be redirected to the 'list' page.
      *
-     * @param string $id
+     * @param int|string $_id
+     * @param int|string $id
      *
      * @return mixed
      */
-    public function run($id)
+    public function run($_id = null, $id = null)
     {
+        $id = ($id ?: $_id);
         $this->controller->findModel($id)->delete();
 
         return $this->controller->redirect(['list']);

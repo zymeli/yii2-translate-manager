@@ -47,6 +47,11 @@ use yii\helpers\Url;
                 },
             ],
         ],
+        'pager' => [
+            'disabledListItemSubTagOptions' => ['class' => 'page-link'],
+            'linkContainerOptions' => ['class' => 'page-item'],
+            'linkOptions' => ['class' => 'page-link'],
+        ],
     ]);
 
     ?>

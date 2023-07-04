@@ -1,24 +1,29 @@
-html,
-body {
+
+/** For yii2.backend */
+html {
     height: 100%;
 }
 
-.wrap {
-    min-height: 100%;
-    height: auto;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
+body {
+    height: 100%;
+    overflow-y: scroll !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
-.wrap > .container {
+main > .container, main > .container-fluid {
     padding: 70px 15px 20px;
 }
 
 .footer {
-    height: 60px;
     background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
+    font-size: .9em;
+    height: 60px;
+}
+
+.footer > .container, .footer > .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .jumbotron {
@@ -38,22 +43,24 @@ body {
 
 /* add sorting icons to gridview sort links */
 a.asc:after, a.desc:after {
-    position: relative;
-    top: 1px;
+    content: '';
+    left: 3px;
     display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    padding-left: 5px;
+    width: 0;
+    height: 0;
+    border: solid 5px transparent;
+    margin: 4px 4px 2px 4px;
+    background: transparent;
 }
 
 a.asc:after {
-    content: /*"\e113"*/ "\e151";
+    border-bottom: solid 7px #212529;
+    border-top-width: 0;
 }
 
 a.desc:after {
-    content: /*"\e114"*/ "\e152";
+    border-top: solid 7px #212529;
+    border-bottom-width: 0;
 }
 
 .sort-numerical a.asc:after {

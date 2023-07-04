@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('language', 'Languages'), 'u
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div id="w2-info" class="alert-info alert fade in">
+<div id="w2-info" class="alert alert-info">
     <?= Yii::t('language', '{n, plural, =0{No new entries} =1{One new entry} other{# new entries}} were added!', ['n' => $newDataProvider->totalCount]) ?>
 </div>
 
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
     'newDataProvider' => $newDataProvider,
 ]) ?>
 
-<div id="w2-danger" class="alert-danger alert fade in">
+<div id="w2-danger" class="alert alert-danger">
     <?= Yii::t('language', '{n, plural, =0{No entries} =1{One entry} other{# entries}} remove!', ['n' => $oldDataProvider->totalCount]) ?>
 </div>
 

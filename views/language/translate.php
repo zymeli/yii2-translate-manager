@@ -78,6 +78,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
         ],
+        'pager' => [
+            'disabledListItemSubTagOptions' => ['class' => 'page-link'],
+            'linkContainerOptions' => ['class' => 'page-item'],
+            'linkOptions' => ['class' => 'page-link'],
+        ],
     ]);
     Pjax::end();
     ?>

@@ -15,28 +15,31 @@ use zymeli\TranslateManager\bundles\TranslateManagerAsset;
  * @var string $content
  */
 
+$this->registerCsrfMetaTags();
 TranslateManagerAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Yii::$app->language ?>" class="h-100">
     <head>
         <meta charset="<?= Yii::$app->charset ?>"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-    <body>
+    <body class="d-flex flex-column h-100">
         <?php $this->beginBody() ?>
-        <div class="wrap">
+
+        <main class="main">
             <?php
             NavBar::begin([
                 'brandLabel' => 'Lajax TranslateManager',
                 'brandUrl' => Yii::$app->homeUrl,
-                'options' => [
-                    'class' => 'navbar-inverse navbar-expand-lg navbar-dark bg-dark',
-                ],
+                'options' => ['class' => 'navbar fixed-top navbar-expand-md navbar-dark bg-dark'],
+                'renderInnerContainer' => true,
+                'innerContainerOptions' => ['class' => 'container-fluid px-3'],
+                'collapseOptions' => ['class' => 'justify-content-end'],
             ]);
             $menuItems = [
                 ['label' => Yii::t('language', 'Home'), 'url' => ['/']],
@@ -52,13 +55,14 @@ TranslateManagerAsset::register($this);
                 ]],
             ];
             echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
+                'activateItems' => false,
+                'options' => ['class' => 'navbar-nav nav-tabs ml-auto mr-n3'],
                 'items' => $menuItems,
             ]);
             NavBar::end();
             ?>
 
-            <div class="container">
+            <div class="container-fluid">
                 <?=
                 Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -71,14 +75,15 @@ TranslateManagerAsset::register($this);
                 <?= Html::tag('h1', Html::encode($this->title)) ?>
                 <?= $content ?>
             </div>
-        </div>
+        </main>
 
-        <footer class="footer">
-            <div class="container">
-                <p class="pull-left">&copy; Lajax TranslateManager <?= date('Y') ?></p>
-                <p class="pull-right"><?= Yii::powered() ?></p>
+        <footer class="footer mt-auto py-3 text-muted">
+            <div class="container-fluid">
+                <p class="float-start">&copy; Lajax TranslateManager <?= date('Y') ?></p>
+                <p class="float-end"><?= Yii::powered() ?></p>
             </div>
         </footer>
+
         <?php $this->endBody() ?>
     </body>
 </html>
