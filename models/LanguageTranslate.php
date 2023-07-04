@@ -14,9 +14,10 @@ use Yii;
  * This is the model class for table "language_translate".
  *
  * @property int $_id
- * @property string $id
+ * @property int $id
  * @property string $language
  * @property string $translation
+ *
  * @property LanguageSource $LanguageSource
  * @property Language $language0
  */
@@ -55,10 +56,11 @@ class LanguageTranslate extends \yii\db\ActiveRecord
         return [
             [['id', 'language'], 'required'],
             [['id'], 'integer'],
-            [['id'], 'exist', 'targetClass' => '\zymeli\TranslateManager\models\LanguageSource'],
-            [['language'], 'exist', 'targetClass' => '\zymeli\TranslateManager\models\Language', 'targetAttribute' => 'language_id'],
+            [['id'], 'exist', 'targetClass' => LanguageSource::class],
+            [['language'], 'exist', 'targetClass' => Language::class, 'targetAttribute' => 'language_id'],
             [['translation'], 'string'],
             [['language'], 'string', 'max' => 5],
+            [['id', 'language'], 'unique', 'targetAttribute' => ['id', 'language']],
         ];
     }
 

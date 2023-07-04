@@ -13,7 +13,7 @@ use Yii;
 /**
  * This is the model class for table "language".
  *
- * @property int $_id
+ * @property-read int $_id
  * @property string $language_id
  * @property string $language
  * @property string $country
@@ -82,7 +82,7 @@ class Language extends \yii\db\ActiveRecord
             [['language_id'], 'match', 'pattern' => '/^([a-z]{2}[_-][A-Z]{2}|[a-z]{2})$/'],
             [['language', 'country'], 'string', 'max' => 2],
             [['language', 'country'], 'match', 'pattern' => '/^[a-z]{2}$/i'],
-            [['name', 'name_ascii'], 'string', 'max' => 32],
+            [['name', 'name_ascii'], 'string', 'max' => 200],
             [['status'], 'integer'],
             [['status'], 'in', 'range' => array_keys(self::$_CONDITIONS)],
         ];

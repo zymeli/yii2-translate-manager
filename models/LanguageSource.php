@@ -13,7 +13,7 @@ use Yii;
 /**
  * This is the model class for table "language_source".
  *
- * @property string $id
+ * @property int $id
  * @property string $category
  * @property string $message
  *
@@ -56,7 +56,7 @@ class LanguageSource extends \yii\db\ActiveRecord
     {
         return [
             [['message'], 'string'],
-            [['category'], 'string', 'max' => 32],
+            [['category'], 'string', 'max' => 200],
         ];
     }
 
