@@ -104,9 +104,9 @@ class m141002_030233_translate_manager extends Migration
 
         $this->createTable('{{%language}}', [
             '_id' => Schema::TYPE_PK,
-            'language_id' => Schema::TYPE_STRING . '(5) NOT NULL',
+            'language_id' => Schema::TYPE_STRING . '(6) NOT NULL',
             'language' => Schema::TYPE_STRING . '(3) NOT NULL',
-            'country' => Schema::TYPE_STRING . '(3) NOT NULL',
+            'country' => Schema::TYPE_STRING . '(2) NOT NULL',
             'name' => Schema::TYPE_STRING . '(200) NOT NULL',
             'name_ascii' => Schema::TYPE_STRING . '(200) NOT NULL',
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL',

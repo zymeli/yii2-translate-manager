@@ -77,10 +77,11 @@ class Language extends \yii\db\ActiveRecord
     {
         return [
             [['language_id', 'language', 'country', 'name', 'name_ascii', 'status'], 'required'],
-            [['language_id'], 'string', 'max' => 5],
+            [['language_id'], 'string', 'max' => 6],
             [['language_id'], 'unique'],
             [['language_id'], 'match', 'pattern' => '/^([a-z]{2}[_-][A-Z]{2}|[a-z]{2})$/'],
-            [['language', 'country'], 'string', 'max' => 2],
+            [['language'], 'string', 'max' => 3],
+            [['country'], 'string', 'max' => 2],
             [['language', 'country'], 'match', 'pattern' => '/^[a-z]{2}$/i'],
             [['name', 'name_ascii'], 'string', 'max' => 200],
             [['status'], 'integer'],

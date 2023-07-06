@@ -24,9 +24,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 
 CREATE TABLE IF NOT EXISTS `language` (
   `_id` int NOT NULL AUTO_INCREMENT,
-  `language_id` varchar(5) NOT NULL,
+  `language_id` varchar(6) NOT NULL,
   `language` varchar(3) NOT NULL,
-  `country` varchar(3) NOT NULL,
+  `country` varchar(2) NOT NULL,
   `name` varchar(200) NOT NULL,
   `name_ascii` varchar(200) NOT NULL,
   `status` tinyint(1) NOT NULL,
